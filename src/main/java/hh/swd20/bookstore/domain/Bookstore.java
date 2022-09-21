@@ -1,8 +1,22 @@
 package hh.swd20.bookstore.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+
+
+@Entity
+
 public class Bookstore {
+	@Id
+	 @GeneratedValue(strategy=GenerationType.AUTO)
+	
 	private String title;
 	private String author;
+	@Column(name="publishing_year")
 	private int	year;
 	private String	isbn;
 	private int price;
@@ -16,14 +30,6 @@ public class Bookstore {
 		this.price= price;
 	}
 	
-	public Bookstore() {
-		super();
-		this.title = null;
-		this.author = null;
-		this.year= 0;
-		this.isbn= null;
-		this.price= 0;
-		}
 	
 	public void setTitle(String title) {
 		this.title = title;
