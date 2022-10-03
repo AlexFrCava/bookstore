@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Categorylist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Categories</h1>
+    <table>
+		<tr>
+		    <th>categoryid</th>
+		    <th>name</th>
+		</tr>  
+    	<tr th:each = "category : ${students}">
+    		<td th:text="${student.firstName} + ' ' + ${student.lastName}"></td>
+    		<td th:text="${student.email}"></td>
+    		<td th:text="${student.department.name}"></td> 		
+ 			<td><a th:href="@{/delete/{id}(id=${student.id})}">Delete</a></td>    		
+    	</tr>
+     </table>
+	 <a href="/add">Add Category</a>    	
+</body>
+</html>
