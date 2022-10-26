@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Bean;
 import hh.swd20.bookstore.domain.Bookstore;
 import hh.swd20.bookstore.domain.BookstoreRepository;
 import hh.swd20.bookstore.domain.CategoryRepository;
+import hh.swd20.bookstore.domain.User;
+import hh.swd20.bookstore.domain.UserRepository;
 import hh.swd20.bookstore.domain.Category;
 
 
@@ -34,11 +36,16 @@ public class BookstoreApplication {
 
 		};
 	}
-	public CommandLineRunner Category(CategoryRepository repository) {
+	public CommandLineRunner Category(CategoryRepository repository ,UserRepository urepository) {
 		return (args) -> { 
 			log.info("new categories");
-			repository.save(new Category ("12345","scifi"));
-			repository.save(new Category ("54321","comic"));
+			repository.save(new Category ("scifi"));
+			repository.save(new Category ("comic"));
+			
+			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
+			User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
+			urepository.save(user1);
+			urepository.save(user2);
 			
 			log.info("all categories");
 			for (Category category : repository.findAll()) {

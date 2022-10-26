@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 public class Bookstore {
 	@Id
 	 @GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
 	
 	private String title;
 	private String author;
@@ -56,6 +57,10 @@ public class Bookstore {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	
+	public void setId(Long id) {
+		this.id=id;
+	}
 
 	public String getTitle() {
 		return title;
@@ -74,6 +79,10 @@ public class Bookstore {
 	
 	public int getPrice() {
 		return price;
+	}
+	public Long getId() {
+		return id;
+	
 	}
 	public Category getCategory() {
 		return category;

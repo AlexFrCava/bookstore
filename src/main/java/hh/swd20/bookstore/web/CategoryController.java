@@ -19,12 +19,12 @@ public class CategoryController {
 		model.addAttribute("categories", repository.findAll());
 		return "categorylist";
 	}
-	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	@RequestMapping(value = "/addcategory", method = RequestMethod.GET)
     public String addCategory(Model model){
     	model.addAttribute("category", new Category());
         return "addbook";
     }  
-	@RequestMapping(value="/save",method=RequestMethod.POST)
+	@RequestMapping(value="/savecategory",method=RequestMethod.POST)
 	public String save(Category category) {
 		repository.save(category);
 		return "redirect:/categorylist";
